@@ -1,0 +1,20 @@
+# Starter pipeline
+
+trigger:
+- none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs: 
+- job: A
+  steps: 
+  - script: echo "A"
+
+- job: B
+  steps:
+    - script: echo "B"
+
+
+
+

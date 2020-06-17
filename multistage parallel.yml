@@ -1,0 +1,53 @@
+# Starter pipeline
+
+trigger:
+- none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages: 
+- stage: A
+  jobs:
+  - job: A1
+    steps:
+    - script: echo "A1"
+
+  - job: A2
+    steps:
+    - script: echo "A2"
+
+- stage: B
+  dependsOn: A 
+  jobs:
+  - job: B1
+    steps:
+    - script: echo "B1"
+  
+  - job: B2
+    steps:
+    - script: echo "B2"
+
+- stage: C
+  dependsOn: A
+  jobs:
+  - job: C1
+    steps:
+    - script: echo "C1"
+  
+  - job: C2
+    steps:
+    - script: echo "C2"
+
+- stage: D
+  dependsOn: 
+  - B
+  - C
+  jobs:
+  - job: D1
+    steps:
+    - script: echo "D1"
+  
+  - job: D2
+    steps:
+    - script: echo "D2"
